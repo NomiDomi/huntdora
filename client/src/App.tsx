@@ -9,8 +9,9 @@ import { JobDetails } from './components/JobDetails';
 import { Loading } from './components/Loading';
 import { Welcome } from './components/Welcome';
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
-import {Container, CssBaseline,AppBar,Toolbar} from '@material-ui/core/';
+import { Container, CssBaseline, AppBar, Toolbar } from '@material-ui/core/';
 import { makeStyles, ThemeProvider, createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
+import ApiClient from './services/apiService';
 
 
 
@@ -76,21 +77,21 @@ function App() {
   const [loading, setloading] = useState<boolean>(false)
 
   useEffect(() => {
-    console.log('executing useEffect:', searchQuery);
     if (searchQuery !== '') {
-      const fetchJobs = async () => {
-        console.log('Sending query', searchQuery)
-        const results: any = await getData(null, searchQuery);
-        results.forEach((job: Job) => {
-          if (jobExists(job.jobId, savedJobs)) job.saved = !job.saved
+      // Fetching the API result based on a specific search query
+      const data: any = ApiClient.getSearchedJobs(searchQuery);
+      data.then((data: any) => {
+        // Mapping the jobs based on the Job class
+        const jobs: any = data.results.map((job: any) => Job.parse(job));
+        // Marking the job as saved 
+        jobs.forEach((job: Job) => {
+          if (jobExists(job.jobId, savedJobs)) job.saved = !job.saved;
         })
-        setJobsList(results);
+        setJobsList(jobs);
         setloading(false);
-      }
-      fetchJobs();
+      })
     }
-
-  }, [searchQuery]);// eslint-disable-line react-hooks/exhaustive-deps
+  }, [searchQuery]);
 
   /**
    *Load jobs on startup

@@ -11,9 +11,10 @@
 import axios from 'axios';
 
 //Resolve Type problem with username and API key
-const API_KEY:any = process.env.REACT_APP_API_KEY;
-//const BASEURL: string = 'https://cors-anywhere.herokuapp.com/https://www.reed.co.uk/api/1.0';
-const BASEURL: string = 'http://localhost:8080/https://www.reed.co.uk/api/1.0';
+//const API_KEY:any = process.env.REACT_APP_API_KEY;
+const API_KEY: any = 'baf1fe9d-e239-4071-84f8-39bbee2b5c33';
+const BASEURL: string = 'https://cors-anywhere.herokuapp.com/https://www.reed.co.uk/api/1.0';
+//const BASEURL: string = 'http://localhost:8080/https://www.reed.co.uk/api/1.0';
 
 export const reedAPI = axios.create({
   auth: {
