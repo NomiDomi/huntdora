@@ -63,7 +63,7 @@ const fakeData: any = {
 };
 
 
-import fn from './services/apiService';
+import fn from './apiService';
 import axios from 'axios';
 
 jest.mock('axios');
@@ -87,38 +87,3 @@ describe('API Services', () => {
     expect(result).toEqual(fakeDataJobId);
   });
 })
-  /* 
-import React from "react";
-import {
-  act,
-  render,
-  wait,
-  fireEvent,
-  screen
-} from "@testing-library/react";
-import App from "./App";
-import { Welcome } from './components/Welcome';
-import { MemoryRouter } from "react-router-dom";
-
-describe("App", () => {
-  test("it navigates to home page when opened", async => {
-    render(
-      <MemoryRouter initialEntries={["/"]}>
-        <Welcome />
-      </MemoryRouter>
-    );
-  });
-
-it("navigates to search portal when you click on search", async => {
-
-  })
-
-  it("navigates to job details when you click on a specific job", async => {
-
-  })
-
-  it("navigates to the saved jobs page", async => {
-
-  }) 
-
-}); */
