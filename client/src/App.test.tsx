@@ -87,7 +87,7 @@ describe('API Services', () => {
     expect(result).toEqual(fakeDataJobId);
   });
 })
-
+  /* 
 import React from "react";
 import {
   act,
@@ -109,7 +109,7 @@ describe("App", () => {
     );
   });
 
-  /* it("navigates to search portal when you click on search", async => {
+it("navigates to search portal when you click on search", async => {
 
   })
 
@@ -119,6 +119,6 @@ describe("App", () => {
 
   it("navigates to the saved jobs page", async => {
 
-  }) */
+  }) 
 
-}); 
+}); */
