@@ -1,3 +1,6 @@
+import fn from './apiService';
+import axios from 'axios';
+
 const fakeDataJobId: any = {
   "employerId": 404159,
   "employerName": "Investigo",
@@ -61,10 +64,6 @@ const fakeData: any = {
     }
   ]
 };
-
-
-import fn from './apiService';
-import axios from 'axios';
 
 jest.mock('axios');
 

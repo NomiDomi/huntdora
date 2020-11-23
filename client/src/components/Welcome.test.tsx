@@ -5,7 +5,6 @@ import { Welcome } from './Welcome';
 import { Fade } from '@material-ui/core';
 import { createShallow } from '@material-ui/core/test-utils';
 
-
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('<Welcome />', () => {
@@ -18,6 +17,6 @@ describe('<Welcome />', () => {
   it('should show text', () => {
     const wrapper = shallow(<Welcome />);
     const text = wrapper.find(Fade);
-    expect(text.text()).toBe("Huntdora");
+    expect(text.text()).toBe("Huntdora");    
   })
 });

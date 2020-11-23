@@ -175,7 +175,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline /> {/*MATERIAL UI CSS RESET*/}
-      <Container maxWidth="sm" className="App">
+      <Container data-testid="App" maxWidth="sm" className="App">
         <Router>
           <AppBar color="primary">
             <Toolbar >
