@@ -5,7 +5,6 @@ import { EmptyList } from './EmptyList';
 import { Typography } from '@material-ui/core';
 import { createShallow } from '@material-ui/core/test-utils';
 
-
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('<EmptyList />', () => {

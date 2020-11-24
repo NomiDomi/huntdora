@@ -68,7 +68,7 @@ theme = responsiveFontSizes(theme);
 
 const LOCAL_STORAGE_KEY = 'huntdora.savedJobs';
 
-function App() {
+export function App() {
 
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [jobsList, setJobsList] = useState<Job[] | []>([]);
@@ -199,7 +199,7 @@ function App() {
   );
 }
 
-export default App;
+
 
 
 

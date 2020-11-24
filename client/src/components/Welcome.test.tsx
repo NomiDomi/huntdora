@@ -17,6 +17,6 @@ describe('<Welcome />', () => {
   it('should show text', () => {
     const wrapper = shallow(<Welcome />);
     const text = wrapper.find(Fade);
-    expect(text.text()).toBe("Huntdora");    
+    expect(text.text()).toBe("Huntdora");
   })
 });

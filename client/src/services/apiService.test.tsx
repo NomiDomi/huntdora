@@ -69,7 +69,7 @@ jest.mock('axios');
 
 describe('API Services', () => {
   test('fetches results from reed API based on a specific query', async () => {
-    axios.get.mockImplementationOnce(() =>
+    (axios.get as jest.Mock).mockImplementationOnce(() =>
       Promise.resolve({ data: fakeData })
     );
     const result = await fn.getSearchedJobs('query-test')
@@ -78,7 +78,7 @@ describe('API Services', () => {
   });
 
   test('fetches results from reed API based on a specific job ID', async () => {
-    axios.get.mockImplementationOnce(() =>
+    (axios.get as jest.Mock).mockImplementationOnce(() =>
       Promise.resolve({ data: fakeDataJobId })
     );
     const result = await fn.getJob('jobId-test')
