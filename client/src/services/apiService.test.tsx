@@ -85,4 +85,13 @@ describe('API Services', () => {
     expect(axios.get).toHaveBeenCalled()
     expect(result).toEqual(fakeDataJobId);
   });
+
+  // circumstance -> consequence
+  // API CALL 1
+  // when query is empty the API returns all jobs
+  // when query is a valid string the API should fetch the results
+  // 
+
+  // API CALL 2
+  // 
 })

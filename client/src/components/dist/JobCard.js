@@ -42,7 +42,7 @@ exports.JobCard = function (_a) {
             react_1["default"].createElement(core_1.Grid, { container: true, direction: "column" },
                 react_1["default"].createElement(core_1.Grid, { container: true, direction: "row", spacing: 1 },
                     react_1["default"].createElement(core_1.Grid, { item: true, xs: 10, onClick: function () { return handleOnJobClick(job.jobId); } },
-                        react_1["default"].createElement(core_1.Typography, { variant: "h6" },
+                        react_1["default"].createElement(core_1.Typography, { "data-testid": "JobCard-jobtitle", variant: "h6" },
                             react_1["default"].createElement("div", null, job.jobTitle))),
                     react_1["default"].createElement(core_1.Grid, { item: true, xs: 2 },
                         react_1["default"].createElement(core_1.Checkbox, { icon: react_1["default"].createElement(LocalActivityOutlined_1["default"], null), checkedIcon: react_1["default"].createElement(LocalActivity_1["default"], null), checked: saved, onChange: handleAddRemove, inputProps: {
@@ -50,7 +50,7 @@ exports.JobCard = function (_a) {
                             } }))),
                 react_1["default"].createElement(core_1.Grid, { container: true, direction: "row" },
                     react_1["default"].createElement(core_1.Grid, { item: true, xs: 6 },
-                        react_1["default"].createElement(core_1.Typography, { variant: "overline" },
+                        react_1["default"].createElement(core_1.Typography, { "data-testid": "JobCard-locationname", variant: "overline" },
                             react_1["default"].createElement("div", null, job.locationName))),
                     react_1["default"].createElement(core_1.Grid, { item: true, xs: 6 },
                         react_1["default"].createElement(core_1.Typography, { variant: "overline" },
