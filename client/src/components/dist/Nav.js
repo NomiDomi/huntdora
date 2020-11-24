@@ -60,12 +60,12 @@ exports.Nav = function (props) {
     function valuetext(value) {
         return value + "miles";
     }
-    return (react_1["default"].createElement(Grid_1["default"], { container: true, "data-testid": "Nav", justify: "space-evenly", spacing: 1 },
+    return (react_1["default"].createElement(Grid_1["default"], { container: true, "data-testid": "NavTop", justify: "space-evenly", spacing: 1 },
         react_1["default"].createElement(Grid_1["default"], { item: true, xs: 2 },
             react_1["default"].createElement("div", { id: "load-welcome-nav", style: { width: '100%', maxWidth: 100, height: 'auto' }, onClick: handleBackToWelcome })),
         react_1["default"].createElement(Grid_1["default"], { item: true, xs: 10 },
             react_1["default"].createElement(Grid_1["default"], { container: true, justify: "center", alignItems: "center", direction: "column" },
-                react_1["default"].createElement(TextField_1["default"], { onClick: handleClickOpenForm, inputRef: register, placeholder: "Search for a job in the uk...", defaultValue: '', style: { width: '80%' }, color: 'secondary', InputProps: {
+                react_1["default"].createElement(TextField_1["default"], { onClick: handleClickOpenForm, inputRef: register, placeholder: "Search for a job in the uk...", defaultValue: '', style: { width: '80%' }, color: 'secondary', "aria-label": "SearchBox", InputProps: {
                         startAdornment: (react_1["default"].createElement(IconButton_1["default"], { style: { color: '#666D82' }, "aria-label": "search", component: "button", onClick: handleClickOpenForm },
                             react_1["default"].createElement(Search_1["default"], { fontSize: 'large' })))
                     } }),

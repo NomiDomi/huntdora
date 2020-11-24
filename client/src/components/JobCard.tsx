@@ -47,6 +47,7 @@ export const JobCard: React.FC<Props> = ({ job, getJob, saveJob, removeJob }) =>
 
   return (
     <Card
+    data-testid="JobCard"
       className={classes.root}
       classes={{ root: raised.raised ? classes.cardHovered : "" }}
       onMouseOver={() => setraised({ raised: true, shadow: 20 })}
