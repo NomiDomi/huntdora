@@ -75,7 +75,7 @@ export const Nav: React.FC<Props> = (props) => {
 
 
   return (
-    <Grid container justify="space-evenly" spacing={1}>
+    <Grid container data-testid="Nav" justify="space-evenly" spacing={1}>
       <Grid item xs={2}>
         <div id="load-welcome-nav" style={{ width: '100%', maxWidth: 100, height: 'auto' }} onClick={handleBackToWelcome} />
       </Grid>

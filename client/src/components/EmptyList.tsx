@@ -19,7 +19,7 @@ export const EmptyList = () => {
   }, []);
 
   return (
-    <Grid container justify="center" alignItems='center' style={{height:'70vh'}}>
+    <Grid container data-testid="EmptyList" justify="center" alignItems='center' style={{height:'70vh'}}>
       <Grid item>
         <div id="puzzle-animation" style={{ width: 200, height: 200 }} />
         <Typography align="center" variant="h6">
