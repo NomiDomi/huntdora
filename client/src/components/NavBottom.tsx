@@ -19,7 +19,7 @@ export const NavBottom: React.FC = () => {
   }
 
   return (
-    <Grid container justify="space-evenly" spacing={1} >
+    <Grid container data-testid="NavBottom" justify="space-evenly" spacing={1} >
       <IconButton style={{color:'#F69483'}} aria-label="Back to Search" component="button" onClick={handleBackToSearch}>
         <PageviewIcon fontSize='large'/>
       </IconButton>
