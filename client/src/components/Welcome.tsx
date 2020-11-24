@@ -19,7 +19,7 @@ export const Welcome = () => {
   }, []);
 
   return (
-    <Grid container justify="center" alignItems="center" direction="column" style={{ height: '70vh' }}>
+    <Grid container data-testid="Welcome" justify="center" alignItems="center" direction="column" style={{ height: '70vh' }}>
       <Grid item>
         <div id="load-welcome" style={{ width: '100%', height: 'auto', maxWidth: 600 }} />
       </Grid>
