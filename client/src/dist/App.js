@@ -43,10 +43,8 @@ var __spreadArrays = (this && this.__spreadArrays) || function () {
     return r;
 };
 exports.__esModule = true;
-exports.App = void 0;
 var react_1 = require("react");
 require("./App.css");
-var apiService_1 = require("./apiService");
 var Job_1 = require("./Job");
 var Nav_1 = require("./components/Nav");
 var NavBottom_1 = require("./components/NavBottom");
@@ -57,7 +55,7 @@ var Welcome_1 = require("./components/Welcome");
 var react_router_dom_1 = require("react-router-dom");
 var core_1 = require("@material-ui/core/");
 var styles_1 = require("@material-ui/core/styles");
-var apiService_2 = require("./services/apiService");
+var apiService_1 = require("./services/apiService");
 var theme_1 = require("./theme");
 var LOCAL_STORAGE_KEY = 'huntdora.savedJobs';
 function App() {
@@ -69,7 +67,7 @@ function App() {
     react_1.useEffect(function () {
         if (searchQuery !== '') {
             // Fetching the API result based on a specific search query
-            var data = apiService_2["default"].getSearchedJobs(searchQuery);
+            var data = apiService_1["default"].getSearchedJobs(searchQuery);
             data.then(function (data) {
                 // Mapping the jobs based on the Job class
                 var jobs = data.results.map(function (job) { return Job_1.Job.parse(job); });
@@ -83,24 +81,17 @@ function App() {
             });
         }
     }, [searchQuery]);
-    /**
-     *Load jobs on startup
-     */
+    // Load jobs on startup
     react_1.useEffect(function () {
         var sJobsJSON = localStorage.getItem(LOCAL_STORAGE_KEY);
         if (sJobsJSON != null)
             setSavedJobs(JSON.parse(sJobsJSON));
     }, []);
-    /**
-     *update jobs on save
-     */
+    // Update jobs on save
     react_1.useEffect(function () {
         localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(savedJobs));
     }, [savedJobs]);
-    /**
-   *
-   * functions to query api
-   */
+    // Functions to query api
     function addQuery(data) {
         var query = data.query, locationName = data.locationName, distanceFrom = data.distanceFrom, minimumSalary = data.minimumSalary;
         var locationQuery = locationName ? "&locationName=" + locationName : "&locationName=london";
@@ -115,16 +106,13 @@ function App() {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        console.log('Checking if is saved...');
                         jobCached = jobExists(jobId, savedJobs);
                         if (!jobCached) return [3 /*break*/, 1];
                         setjobDetails(jobCached);
-                        console.log('Fetched Existing', jobCached);
                         return [3 /*break*/, 3];
                     case 1:
                         setloading(true);
-                        console.log('Fetching new job details');
-                        return [4 /*yield*/, apiService_1.getData(jobId, null)];
+                        return [4 /*yield*/, apiService_1["default"].getJob(jobId.toString())];
                     case 2:
                         newJob = _a.sent();
                         setjobDetails(newJob);
@@ -135,7 +123,7 @@ function App() {
             });
         });
     }
-    /*job saved from memory rather than refetched*/
+    // job saved from memory rather than refetched
     function saveJob(job) {
         return __awaiter(this, void 0, void 0, function () {
             var newJob_1;
@@ -143,7 +131,7 @@ function App() {
                 switch (_a.label) {
                     case 0:
                         if (!!jobExists(job.jobId, savedJobs)) return [3 /*break*/, 2];
-                        return [4 /*yield*/, apiService_1.getData(job.jobId, null)];
+                        return [4 /*yield*/, apiService_1["default"].getJob(job.jobId.toString())];
                     case 1:
                         newJob_1 = _a.sent();
                         newJob_1.saved = true;
@@ -154,11 +142,8 @@ function App() {
             });
         });
     }
-    /*************************************
-     *
-     * Function Utilities for handling
-     * saved job data and state
-     *************************************/
+    // Function Utilities for handling
+    // saved job data and state
     function saveJobFromDetails(job) {
         if (!jobExists(job.jobId, savedJobs))
             setSavedJobs(function (savedJobs) { return __spreadArrays(savedJobs, [job]); });
@@ -194,10 +179,10 @@ function App() {
                     react_1["default"].createElement(core_1.Toolbar, null,
                         react_1["default"].createElement(NavBottom_1.NavBottom, null)))))));
 }
-exports.App = App;
+exports["default"] = App;
 /*Note about typescript
 Before passing props to components
 Interface/class needs to be created (not sure about difference to typescript)
 to indicate the component expects that. At the same time, when passing the prop,
 also the prop needs to be marked of that type.
-*/
+*/ 

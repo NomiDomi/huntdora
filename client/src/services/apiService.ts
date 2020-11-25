@@ -18,15 +18,21 @@ export default {
 // Fetch the information from the API based on the base url and the path to certain data
 const fetchRequest: any = async (path: string) => {
   try {
-    return await axios.get(`${BASE_URL}${path}`,
+    const res: any = await axios(`${BASE_URL}${path}`,
       {
         auth: {
           username: API_KEY,
           password: ''
+        },
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          "X-Requested-With": "message/http"
         }
       }
     )
-  }
+    return res;
+    }
   catch (err) {
     console.error(`The API call to ${BASE_URL}${path} has failed with the following error message: ${err}`);
   }

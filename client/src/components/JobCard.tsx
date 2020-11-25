@@ -13,9 +13,8 @@ interface Props {
   saveJob: (job: Job) => void;
   removeJob: (job: Job) => void;
 }
-/**
- * Hover over card animation
- */
+
+// Hover over card animation
 const useStyles = makeStyles({
   root: {
     transition: "transform 0.25s ease-in-out"
@@ -24,7 +23,6 @@ const useStyles = makeStyles({
     transform: "scale(1.025)"
   }
 });
-
 
 export const JobCard: React.FC<Props> = ({ job, getJob, saveJob, removeJob }) => {
   const [saved, setsaved] = useState<boolean>(job.saved)
@@ -38,11 +36,9 @@ export const JobCard: React.FC<Props> = ({ job, getJob, saveJob, removeJob }) =>
     history.push("/job-details") // eslint-disable-line no-restricted-globals
   }
   const handleAddRemove = ():void => {
-    console.log('Changing property', job.saved)
     setsaved((saved) => !saved);
     job.saved ? removeJob(job) : saveJob(job);
     job.saved = !job.saved;
-    console.log('Changed property', job.saved)
   }
 
   return (

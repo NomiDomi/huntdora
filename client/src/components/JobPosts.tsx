@@ -4,7 +4,6 @@ import { Job } from '../Job';
 import Grid from '@material-ui/core/Grid';
 import { EmptyList } from './EmptyList';
 
-
 interface Props {
   jobs: Job[];
   getJob: (jobId: number) => void;
@@ -13,8 +12,6 @@ interface Props {
 }
 
 export const JobPosts: React.FC<Props> = (props) => {
-
-  console.log("We've got: ", props)
   return (
     <Grid container data-testid="JobPosts" spacing={3}>
       {

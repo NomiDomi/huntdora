@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
-import { getData } from './apiService';
 import { Job } from './Job';
 import { Nav } from './components/Nav';
 import { NavBottom } from './components/NavBottom'
@@ -10,14 +9,13 @@ import { Loading } from './components/Loading';
 import { Welcome } from './components/Welcome';
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 import { Container, CssBaseline, AppBar, Toolbar } from '@material-ui/core/';
-import { ThemeProvider} from '@material-ui/core/styles';
+import { ThemeProvider } from '@material-ui/core/styles';
 import ApiClient from './services/apiService';
 import theme from './theme';
 
 const LOCAL_STORAGE_KEY = 'huntdora.savedJobs';
 
-export function App() {
-
+export default function App() {
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [jobsList, setJobsList] = useState<Job[] | []>([]);
   const [jobDetails, setjobDetails] = useState<Job>(Job.parse({}));
@@ -41,25 +39,18 @@ export function App() {
     }
   }, [searchQuery]);
 
-  /**
-   *Load jobs on startup
-   */
+  // Load jobs on startup
   useEffect(() => {
     const sJobsJSON = localStorage.getItem(LOCAL_STORAGE_KEY);
     if (sJobsJSON != null) setSavedJobs(JSON.parse(sJobsJSON));
   }, [])
-  /**
-   *update jobs on save
-   */
+
+  // Update jobs on save
   useEffect(() => {
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(savedJobs))
   }, [savedJobs])
 
-  /**
- *
- * functions to query api
- */
-
+  // Functions to query api
   function addQuery(data: { query: string, locationName: string, distanceFrom: number | '', minimumSalary: number | '' }) {
     let { query, locationName, distanceFrom, minimumSalary } = data;
     const locationQuery = locationName ? `&locationName=${locationName}` : `&locationName=london`;
@@ -70,35 +61,30 @@ export function App() {
   }
 
   async function getJob(jobId: number) {
-    console.log('Checking if is saved...')
     const jobCached = jobExists(jobId, savedJobs);
     if (jobCached) {
-      setjobDetails(jobCached)
-      console.log('Fetched Existing', jobCached)
+      setjobDetails(jobCached);
     }
     else {
       setloading(true);
-      console.log('Fetching new job details');
-      const newJob: Job = await getData(jobId, null)
-      setjobDetails(newJob)
+      const newJob: Job = await ApiClient.getJob(jobId.toString());
+      setjobDetails(newJob);
       setloading(false);
     }
   }
 
-  /*job saved from memory rather than refetched*/
+  // job saved from memory rather than refetched
   async function saveJob(job: Job) {
     if (!jobExists(job.jobId, savedJobs)) {
-      const newJob: Job = await getData(job.jobId, null);
+      const newJob: Job = await ApiClient.getJob(job.jobId.toString());
       newJob.saved = true;
       setSavedJobs(savedJobs => [...savedJobs, newJob]);
     }
   }
 
-  /*************************************
-   *
-   * Function Utilities for handling
-   * saved job data and state
-   *************************************/
+  
+  // Function Utilities for handling
+  // saved job data and state
 
   function saveJobFromDetails(job: Job) {
     if (!jobExists(job.jobId, savedJobs)) setSavedJobs(savedJobs => [...savedJobs, job]);
@@ -146,10 +132,6 @@ export function App() {
     </ThemeProvider>
   );
 }
-
-
-
-
 
 /*Note about typescript
 Before passing props to components

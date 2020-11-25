@@ -21,10 +21,8 @@ export const JobDetails: React.FC<Props> = ({ job, saveJobFromDetails, removeJob
     job.saved = !job.saved;
     setsaved((saved: boolean) => !saved);
   }
-  /**
-   * Long job description returns
-   * a string of HTML
-   */
+
+  // Long job description returns a string of HTML
   function parseJobDesc(): JSX.Element | JSX.Element[] | undefined {
     if (job.jobDescription) return parse(job.jobDescription)
   }
@@ -34,7 +32,7 @@ export const JobDetails: React.FC<Props> = ({ job, saveJobFromDetails, removeJob
       if (url === null) throw new Error('invalid url');
       window.open(url);
     } catch (e) {
-      console.log(e);
+      console.error(e);
     }
   }
 

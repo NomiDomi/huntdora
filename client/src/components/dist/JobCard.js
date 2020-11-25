@@ -9,9 +9,7 @@ var core_1 = require("@material-ui/core");
 var LocalActivity_1 = require("@material-ui/icons/LocalActivity");
 var LocalActivityOutlined_1 = require("@material-ui/icons/LocalActivityOutlined");
 var styles_1 = require("@material-ui/core/styles");
-/**
- * Hover over card animation
- */
+// Hover over card animation
 var useStyles = styles_1.makeStyles({
     root: {
         transition: "transform 0.25s ease-in-out"
@@ -31,11 +29,9 @@ exports.JobCard = function (_a) {
         history.push("/job-details"); // eslint-disable-line no-restricted-globals
     };
     var handleAddRemove = function () {
-        console.log('Changing property', job.saved);
         setsaved(function (saved) { return !saved; });
         job.saved ? removeJob(job) : saveJob(job);
         job.saved = !job.saved;
-        console.log('Changed property', job.saved);
     };
     return (react_1["default"].createElement(core_1.Card, { "data-testid": "JobCard", className: classes.root, classes: { root: raised.raised ? classes.cardHovered : "" }, onMouseOver: function () { return setraised({ raised: true, shadow: 20 }); }, onMouseOut: function () { return setraised({ raised: false, shadow: 10 }); }, raised: raised.raised, elevation: raised.shadow },
         react_1["default"].createElement(core_1.CardContent, null,

@@ -7,7 +7,7 @@ require("@testing-library/jest-dom/extend-expect");
 describe('<App />', function () {
     var appRender;
     beforeEach(function () {
-        appRender = react_2.render(react_1["default"].createElement(App_1.App, null));
+        appRender = react_2.render(react_1["default"].createElement(App_1["default"], null));
     });
     afterEach(function () {
         appRender.unmount();

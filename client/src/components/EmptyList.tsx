@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import puzzleAnimation from "../33692-puzzle-animation.json";
+import puzzleAnimation from "../assets/33692-puzzle-animation.json";
 import lottie from 'lottie-web';
 import { Typography,Grid } from '@material-ui/core';
 

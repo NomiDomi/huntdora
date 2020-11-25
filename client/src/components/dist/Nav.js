@@ -21,7 +21,7 @@ var IconButton_1 = require("@material-ui/core/IconButton");
 var Search_1 = require("@material-ui/icons/Search");
 var Grid_1 = require("@material-ui/core/Grid");
 var core_1 = require("@material-ui/core");
-var loading_spinner_json_1 = require("../loading-spinner.json");
+var loading_spinner_json_1 = require("../assets/loading-spinner.json");
 var lottie_web_1 = require("lottie-web");
 exports.Nav = function (props) {
     var history = react_router_dom_1.useHistory();
@@ -39,14 +39,10 @@ exports.Nav = function (props) {
     var handleBackToWelcome = function () {
         history.push('/');
     };
-    /************************
-     * Form utility functions
-     ************************/
+    // Form utility functions
     var onSubmit = function (data) {
         handleCloseForm();
-        console.log('Submited: ', data);
         if (data.query || data.locationName || data.distanceFrom || data.minimumSalary) {
-            console.log('Submitting: ', data);
             props.addQuery(data);
             history.push('/job-search');
         }
