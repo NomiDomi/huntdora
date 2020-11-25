@@ -101,45 +101,42 @@ var fakeData = {
 };
 jest.mock('axios');
 describe('API Services', function () {
-    test('fetches results from reed API based on a specific query', function () { return __awaiter(void 0, void 0, void 0, function () {
-        var result;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0:
-                    axios_1["default"].get.mockImplementationOnce(function () {
-                        return Promise.resolve({ data: fakeData });
-                    });
-                    return [4 /*yield*/, apiService_1["default"].getSearchedJobs('query-test')];
-                case 1:
-                    result = _a.sent();
-                    expect(axios_1["default"].get).toHaveBeenCalled();
-                    expect(result).toEqual(fakeData);
-                    return [2 /*return*/];
-            }
-        });
-    }); });
-    test('fetches results from reed API based on a specific job ID', function () { return __awaiter(void 0, void 0, void 0, function () {
-        var result;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0:
-                    axios_1["default"].get.mockImplementationOnce(function () {
-                        return Promise.resolve({ data: fakeDataJobId });
-                    });
-                    return [4 /*yield*/, apiService_1["default"].getJob('jobId-test')];
-                case 1:
-                    result = _a.sent();
-                    expect(axios_1["default"].get).toHaveBeenCalled();
-                    expect(result).toEqual(fakeDataJobId);
-                    return [2 /*return*/];
-            }
-        });
-    }); });
-    // circumstance -> consequence
-    // API CALL 1
-    // when query is empty the API returns all jobs
-    // when query is a valid string the API should fetch the results
-    // 
-    // API CALL 2
-    // 
+    describe('Query jobs based on specific keywords', function () {
+        test('it fetches the jobs', function () { return __awaiter(void 0, void 0, void 0, function () {
+            var result;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        axios_1["default"].get.mockImplementationOnce(function () {
+                            return Promise.resolve({ data: fakeData });
+                        });
+                        return [4 /*yield*/, apiService_1["default"].getSearchedJobs('query-test')];
+                    case 1:
+                        result = _a.sent();
+                        expect(axios_1["default"].get).toHaveBeenCalled();
+                        expect(result).toEqual(fakeData);
+                        return [2 /*return*/];
+                }
+            });
+        }); });
+    });
+    describe('Query based on a job ID', function () {
+        test('it fetches results from reed API based on a specific job ID', function () { return __awaiter(void 0, void 0, void 0, function () {
+            var result;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        axios_1["default"].get.mockImplementationOnce(function () {
+                            return Promise.resolve({ data: fakeDataJobId });
+                        });
+                        return [4 /*yield*/, apiService_1["default"].getJob('jobId-test')];
+                    case 1:
+                        result = _a.sent();
+                        expect(axios_1["default"].get).toHaveBeenCalled();
+                        expect(result).toEqual(fakeDataJobId);
+                        return [2 /*return*/];
+                }
+            });
+        }); });
+    });
 });

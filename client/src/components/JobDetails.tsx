@@ -39,7 +39,7 @@ export const JobDetails: React.FC<Props> = ({ job, saveJobFromDetails, removeJob
   }
 
   return (
-    <Grid container direction={"column"}>
+    <Grid container data-testid="JobDetails" direction={"column"}>
       <Grid container justify='space-between' style={{ padding: '20px' }}>
         <Grid item xs={8}>
           <Typography variant={'h4'} component="div">

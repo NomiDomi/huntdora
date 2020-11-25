@@ -68,30 +68,25 @@ const fakeData: any = {
 jest.mock('axios');
 
 describe('API Services', () => {
-  test('fetches results from reed API based on a specific query', async () => {
-    (axios.get as jest.Mock).mockImplementationOnce(() =>
-      Promise.resolve({ data: fakeData })
-    );
-    const result = await fn.getSearchedJobs('query-test')
-    expect(axios.get).toHaveBeenCalled()
-    expect(result).toEqual(fakeData);
+  describe('Query jobs based on specific keywords', () => {
+    test('it fetches the jobs', async () => {
+      (axios.get as jest.Mock).mockImplementationOnce(() =>
+        Promise.resolve({ data: fakeData })
+      );
+      const result = await fn.getSearchedJobs('query-test')
+      expect(axios.get).toHaveBeenCalled()
+      expect(result).toEqual(fakeData);
+    });
   });
 
-  test('fetches results from reed API based on a specific job ID', async () => {
-    (axios.get as jest.Mock).mockImplementationOnce(() =>
-      Promise.resolve({ data: fakeDataJobId })
-    );
-    const result = await fn.getJob('jobId-test')
-    expect(axios.get).toHaveBeenCalled()
-    expect(result).toEqual(fakeDataJobId);
-  });
-
-  // circumstance -> consequence
-  // API CALL 1
-  // when query is empty the API returns all jobs
-  // when query is a valid string the API should fetch the results
-  // 
-
-  // API CALL 2
-  // 
+  describe('Query based on a job ID', () => {
+    test('it fetches results from reed API based on a specific job ID', async () => {
+      (axios.get as jest.Mock).mockImplementationOnce(() =>
+        Promise.resolve({ data: fakeDataJobId })
+      );
+      const result = await fn.getJob('jobId-test')
+      expect(axios.get).toHaveBeenCalled()
+      expect(result).toEqual(fakeDataJobId);
+    });
+  }); 
 })

@@ -19,34 +19,29 @@ describe('<App />', () => {
     expect(app).toBeInTheDocument();
   })
 
-
-  describe('NavBar', () => {
-    test('it should render top nav bar', () => {
-      const navBarTop = screen.getByTestId('NavTop');
-      expect(navBarTop).toBeInTheDocument();
-    })
-
-    test('it should open search box when clicked on text input', () => {
-      const navBarTop = screen.getByTestId('NavTop');
-      const searchBox = screen.getByLabelText('SearchBox');
-      expect(navBarTop).toBeInTheDocument();
-      fireEvent.click(searchBox);
-      expect(screen.getByText('Set Filters')).toBeInTheDocument();
-    })
+  test('it should render top nav bar', () => {
+    const navBarTop = screen.getByTestId('NavTop');
+    expect(navBarTop).toBeInTheDocument();
+  })
+  
+  test('it should open search box when clicked on text input', () => {
+    const navBarTop = screen.getByTestId('NavTop');
+    const searchBox = screen.getByLabelText('SearchBox');
+    expect(navBarTop).toBeInTheDocument();
+    fireEvent.click(searchBox);
+    expect(screen.getByText('Set Filters')).toBeInTheDocument();
   })
 
-  describe('NavbarBottom', () => {
-    test('it should render bottom nav bar', () => {
-      const navBarBot = screen.getByTestId('NavBottom');
-      expect(navBarBot).toBeInTheDocument();
-    })
-
-    test('if there are no jobs saved, it should show empty page with "no jobs here!"', () => {
-      const navBarBot = screen.getByTestId('NavBottom');
-      const searchButton = screen.getByLabelText('Back to Search');
-      expect(navBarBot).toBeInTheDocument();
-      fireEvent.click(searchButton);
-      expect(screen.getByText('No Jobs Here!')).toBeInTheDocument();
-    })
+  test('it should render bottom nav bar', () => {
+    const navBarBot = screen.getByTestId('NavBottom');
+    expect(navBarBot).toBeInTheDocument();
   })
-})
+
+  test('if there are no jobs saved, it should show empty page with "no jobs here!"', () => {
+    const navBarBot = screen.getByTestId('NavBottom');
+    const searchButton = screen.getByLabelText('Back to Search');
+    expect(navBarBot).toBeInTheDocument();
+    fireEvent.click(searchButton);
+    expect(screen.getByText('No Jobs Here!')).toBeInTheDocument();
+  })
+});
