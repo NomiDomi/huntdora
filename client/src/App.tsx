@@ -10,48 +10,9 @@ import { Loading } from './components/Loading';
 import { Welcome } from './components/Welcome';
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 import { Container, CssBaseline, AppBar, Toolbar } from '@material-ui/core/';
-import { makeStyles, ThemeProvider, createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
+import { ThemeProvider} from '@material-ui/core/styles';
 import ApiClient from './services/apiService';
-
-
-//global themes can be set here
-let theme = createMuiTheme({
-  /*text styling */
-  typography: {
-    allVariants: {
-      color: '#1F2F47',
-    }
-  },
-  /*General Primary and Secondary colours */
-  palette: {
-    primary: {
-      light: '#f5f3ed',
-      main: '#f3f0e9',
-      dark: '#aaa8a3',
-      contrastText: '#9fdcda',
-    },
-    secondary: {
-      light: '#9fdcda',
-      main: '#87d4d1',
-      dark: '#5e9492',
-      contrastText: '#1f2f47',
-    },
-  },
-  /*Style of text boxes */
-  overrides: {
-    MuiFilledInput: {
-      input: {
-        padding: '5px',
-      },
-    },
-    MuiInputBase: {
-      input: {
-        padding: '5px',
-      },
-    },
-  },
-})
-theme = responsiveFontSizes(theme);
+import theme from './theme';
 
 const LOCAL_STORAGE_KEY = 'huntdora.savedJobs';
 

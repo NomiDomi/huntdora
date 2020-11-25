@@ -58,44 +58,7 @@ var react_router_dom_1 = require("react-router-dom");
 var core_1 = require("@material-ui/core/");
 var styles_1 = require("@material-ui/core/styles");
 var apiService_2 = require("./services/apiService");
-//global themes can be set here
-var theme = styles_1.createMuiTheme({
-    /*text styling */
-    typography: {
-        allVariants: {
-            color: '#1F2F47'
-        }
-    },
-    /*General Primary and Secondary colours */
-    palette: {
-        primary: {
-            light: '#f5f3ed',
-            main: '#f3f0e9',
-            dark: '#aaa8a3',
-            contrastText: '#9fdcda'
-        },
-        secondary: {
-            light: '#9fdcda',
-            main: '#87d4d1',
-            dark: '#5e9492',
-            contrastText: '#1f2f47'
-        }
-    },
-    /*Style of text boxes */
-    overrides: {
-        MuiFilledInput: {
-            input: {
-                padding: '5px'
-            }
-        },
-        MuiInputBase: {
-            input: {
-                padding: '5px'
-            }
-        }
-    }
-});
-theme = styles_1.responsiveFontSizes(theme);
+var theme_1 = require("./theme");
 var LOCAL_STORAGE_KEY = 'huntdora.savedJobs';
 function App() {
     var _a = react_1.useState(''), searchQuery = _a[0], setSearchQuery = _a[1];
@@ -214,7 +177,7 @@ function App() {
             jobToUpdate.saved = !jobToUpdate.saved;
         setJobsList(__spreadArrays(jobsList));
     }
-    return (react_1["default"].createElement(styles_1.ThemeProvider, { theme: theme },
+    return (react_1["default"].createElement(styles_1.ThemeProvider, { theme: theme_1["default"] },
         react_1["default"].createElement(core_1.CssBaseline, null),
         " ",
         react_1["default"].createElement(core_1.Container, { "data-testid": "App", maxWidth: "sm", className: "App" },
