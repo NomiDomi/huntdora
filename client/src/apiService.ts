@@ -1,5 +1,5 @@
 import { reedAPI } from './apiCall';
-import { Job } from './app-types'
+import { Job } from './Job'
 
 export async function getData(jobId: number | null, searchQuery: string | null): Promise<any> {
   console.log('API CALL received:', jobId, searchQuery);

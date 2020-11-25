@@ -47,7 +47,7 @@ exports.App = void 0;
 var react_1 = require("react");
 require("./App.css");
 var apiService_1 = require("./apiService");
-var app_types_1 = require("./app-types");
+var Job_1 = require("./Job");
 var Nav_1 = require("./components/Nav");
 var NavBottom_1 = require("./components/NavBottom");
 var JobPosts_1 = require("./components/JobPosts");
@@ -58,17 +58,6 @@ var react_router_dom_1 = require("react-router-dom");
 var core_1 = require("@material-ui/core/");
 var styles_1 = require("@material-ui/core/styles");
 var apiService_2 = require("./services/apiService");
-/*Example of custom styles that can be applied to a component (a custom button for example)
-Follow docs for specific properties to use
- const useStyles = makeStyles({
-   root: {
-     background: 'linear-gradient(45deg, #333,#999)',
-     border: 0,
-     borderRadius: 15,
-     color: 'white',
-     padding: '0 30px'
-   }
- })*/
 //global themes can be set here
 var theme = styles_1.createMuiTheme({
     /*text styling */
@@ -111,7 +100,7 @@ var LOCAL_STORAGE_KEY = 'huntdora.savedJobs';
 function App() {
     var _a = react_1.useState(''), searchQuery = _a[0], setSearchQuery = _a[1];
     var _b = react_1.useState([]), jobsList = _b[0], setJobsList = _b[1];
-    var _c = react_1.useState(app_types_1.Job.parse({})), jobDetails = _c[0], setjobDetails = _c[1];
+    var _c = react_1.useState(Job_1.Job.parse({})), jobDetails = _c[0], setjobDetails = _c[1];
     var _d = react_1.useState([]), savedJobs = _d[0], setSavedJobs = _d[1];
     var _e = react_1.useState(false), loading = _e[0], setloading = _e[1];
     react_1.useEffect(function () {
@@ -120,7 +109,7 @@ function App() {
             var data = apiService_2["default"].getSearchedJobs(searchQuery);
             data.then(function (data) {
                 // Mapping the jobs based on the Job class
-                var jobs = data.results.map(function (job) { return app_types_1.Job.parse(job); });
+                var jobs = data.results.map(function (job) { return Job_1.Job.parse(job); });
                 // Marking the job as saved 
                 jobs.forEach(function (job) {
                     if (jobExists(job.jobId, savedJobs))

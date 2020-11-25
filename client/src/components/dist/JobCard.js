@@ -2,7 +2,7 @@
 exports.__esModule = true;
 exports.JobCard = void 0;
 var react_1 = require("react");
-var app_types_1 = require("../app-types");
+var Job_1 = require("../Job");
 var react_router_dom_1 = require("react-router-dom");
 var react_2 = require("react");
 var core_1 = require("@material-ui/core");
@@ -54,5 +54,5 @@ exports.JobCard = function (_a) {
                             react_1["default"].createElement("div", null, job.locationName))),
                     react_1["default"].createElement(core_1.Grid, { item: true, xs: 6 },
                         react_1["default"].createElement(core_1.Typography, { variant: "overline" },
-                            react_1["default"].createElement("div", null, '£' + app_types_1.Job.calculateSalaryFreq(job.minimumSalary, job.maximumSalary)))))))));
+                            react_1["default"].createElement("div", null, '£' + Job_1.Job.calculateSalaryFreq(job.minimumSalary, job.maximumSalary)))))))));
 };

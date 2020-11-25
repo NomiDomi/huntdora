@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
 import { getData } from './apiService';
-import { Job } from './app-types';
+import { Job } from './Job';
 import { Nav } from './components/Nav';
 import { NavBottom } from './components/NavBottom'
 import { JobPosts } from './components/JobPosts';
@@ -13,19 +13,6 @@ import { Container, CssBaseline, AppBar, Toolbar } from '@material-ui/core/';
 import { makeStyles, ThemeProvider, createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
 import ApiClient from './services/apiService';
 
-
-
-/*Example of custom styles that can be applied to a component (a custom button for example)
-Follow docs for specific properties to use
- const useStyles = makeStyles({
-   root: {
-     background: 'linear-gradient(45deg, #333,#999)',
-     border: 0,
-     borderRadius: 15,
-     color: 'white',
-     padding: '0 30px'
-   }
- })*/
 
 //global themes can be set here
 let theme = createMuiTheme({
