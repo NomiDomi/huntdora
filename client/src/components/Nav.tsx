@@ -75,7 +75,7 @@ export const Nav: React.FC<Props> = (props) => {
 
 
   return (
-    <Grid container justify="space-evenly" spacing={1}>
+    <Grid container data-testid="NavTop" justify="space-evenly" spacing={1}>
       <Grid item xs={2}>
         <div id="load-welcome-nav" style={{ width: '100%', maxWidth: 100, height: 'auto' }} onClick={handleBackToWelcome} />
       </Grid>
@@ -89,6 +89,7 @@ export const Nav: React.FC<Props> = (props) => {
             defaultValue=''
             style={{ width: '80%' }}
             color='secondary'
+            aria-label="SearchBox"
             InputProps={{
               startAdornment: (
                 <IconButton style={{ color: '#666D82' }} aria-label="search" component="button" onClick={handleClickOpenForm}>

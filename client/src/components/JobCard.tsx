@@ -47,6 +47,7 @@ export const JobCard: React.FC<Props> = ({ job, getJob, saveJob, removeJob }) =>
 
   return (
     <Card
+      data-testid="JobCard"
       className={classes.root}
       classes={{ root: raised.raised ? classes.cardHovered : "" }}
       onMouseOver={() => setraised({ raised: true, shadow: 20 })}
@@ -58,7 +59,7 @@ export const JobCard: React.FC<Props> = ({ job, getJob, saveJob, removeJob }) =>
         <Grid container direction="column">
           <Grid container direction="row" spacing={1}>
             <Grid item xs={10} onClick={() => handleOnJobClick(job.jobId)}>
-              <Typography variant="h6">
+              <Typography data-testid="JobCard-jobtitle" variant="h6">
                 <div>{job.jobTitle}</div>
               </Typography>
             </Grid>
@@ -76,7 +77,7 @@ export const JobCard: React.FC<Props> = ({ job, getJob, saveJob, removeJob }) =>
           </Grid>
           <Grid container direction="row">
             <Grid item xs={6}>
-              <Typography variant="overline">
+              <Typography data-testid="JobCard-locationname" variant="overline">
                 <div>{job.locationName}</div>
               </Typography>
 

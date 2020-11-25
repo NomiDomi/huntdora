@@ -68,7 +68,7 @@ theme = responsiveFontSizes(theme);
 
 const LOCAL_STORAGE_KEY = 'huntdora.savedJobs';
 
-function App() {
+export function App() {
 
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [jobsList, setJobsList] = useState<Job[] | []>([]);
@@ -175,7 +175,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline /> {/*MATERIAL UI CSS RESET*/}
-      <Container maxWidth="sm" className="App">
+      <Container data-testid="App" maxWidth="sm" className="App">
         <Router>
           <AppBar color="primary">
             <Toolbar >
@@ -199,7 +199,7 @@ function App() {
   );
 }
 
-export default App;
+
 
 
 
