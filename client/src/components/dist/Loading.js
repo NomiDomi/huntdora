@@ -2,7 +2,7 @@
 exports.__esModule = true;
 exports.Loading = void 0;
 var react_1 = require("react");
-var loading_spinner_json_1 = require("../loading-spinner.json");
+var loading_spinner_json_1 = require("../assets/loading-spinner.json");
 var lottie_web_1 = require("lottie-web");
 var Grid_1 = require("@material-ui/core/Grid");
 var core_1 = require("@material-ui/core");

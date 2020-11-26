@@ -2,16 +2,14 @@
 exports.__esModule = true;
 exports.JobCard = void 0;
 var react_1 = require("react");
-var app_types_1 = require("../app-types");
+var Job_1 = require("../Job");
 var react_router_dom_1 = require("react-router-dom");
 var react_2 = require("react");
 var core_1 = require("@material-ui/core");
 var LocalActivity_1 = require("@material-ui/icons/LocalActivity");
 var LocalActivityOutlined_1 = require("@material-ui/icons/LocalActivityOutlined");
 var styles_1 = require("@material-ui/core/styles");
-/**
- * Hover over card animation
- */
+// Hover over card animation
 var useStyles = styles_1.makeStyles({
     root: {
         transition: "transform 0.25s ease-in-out"
@@ -31,11 +29,9 @@ exports.JobCard = function (_a) {
         history.push("/job-details"); // eslint-disable-line no-restricted-globals
     };
     var handleAddRemove = function () {
-        console.log('Changing property', job.saved);
         setsaved(function (saved) { return !saved; });
         job.saved ? removeJob(job) : saveJob(job);
         job.saved = !job.saved;
-        console.log('Changed property', job.saved);
     };
     return (react_1["default"].createElement(core_1.Card, { "data-testid": "JobCard", className: classes.root, classes: { root: raised.raised ? classes.cardHovered : "" }, onMouseOver: function () { return setraised({ raised: true, shadow: 20 }); }, onMouseOut: function () { return setraised({ raised: false, shadow: 10 }); }, raised: raised.raised, elevation: raised.shadow },
         react_1["default"].createElement(core_1.CardContent, null,
@@ -54,5 +50,5 @@ exports.JobCard = function (_a) {
                             react_1["default"].createElement("div", null, job.locationName))),
                     react_1["default"].createElement(core_1.Grid, { item: true, xs: 6 },
                         react_1["default"].createElement(core_1.Typography, { variant: "overline" },
-                            react_1["default"].createElement("div", null, '£' + app_types_1.Job.calculateSalaryFreq(job.minimumSalary, job.maximumSalary)))))))));
+                            react_1["default"].createElement("div", null, '£' + Job_1.Job.calculateSalaryFreq(job.minimumSalary, job.maximumSalary)))))))));
 };

@@ -1,9 +1,8 @@
 import React from 'react';
 import { JobCard } from './JobCard';
-import { Job } from '../app-types';
+import { Job } from '../Job';
 import Grid from '@material-ui/core/Grid';
 import { EmptyList } from './EmptyList';
-
 
 interface Props {
   jobs: Job[];
@@ -13,8 +12,6 @@ interface Props {
 }
 
 export const JobPosts: React.FC<Props> = (props) => {
-
-  console.log("We've got: ", props)
   return (
     <Grid container data-testid="JobPosts" spacing={3}>
       {

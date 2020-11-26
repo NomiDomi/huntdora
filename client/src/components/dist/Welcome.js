@@ -3,7 +3,7 @@ exports.__esModule = true;
 exports.Welcome = void 0;
 var react_1 = require("react");
 var core_1 = require("@material-ui/core");
-var loading_spinner_json_1 = require("../loading-spinner.json");
+var loading_spinner_json_1 = require("../assets/loading-spinner.json");
 var lottie_web_1 = require("lottie-web");
 exports.Welcome = function () {
     react_1.useEffect(function () {

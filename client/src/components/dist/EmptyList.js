@@ -2,7 +2,7 @@
 exports.__esModule = true;
 exports.EmptyList = void 0;
 var react_1 = require("react");
-var _33692_puzzle_animation_json_1 = require("../33692-puzzle-animation.json");
+var _33692_puzzle_animation_json_1 = require("../assets/33692-puzzle-animation.json");
 var lottie_web_1 = require("lottie-web");
 var core_1 = require("@material-ui/core");
 exports.EmptyList = function () {

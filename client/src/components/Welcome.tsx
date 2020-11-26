@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { Fade, Typography, Grid } from '@material-ui/core';
-import welcomeAnimation from "../loading-spinner.json";
+import welcomeAnimation from "../assets/loading-spinner.json";
 import lottie from 'lottie-web';
 
 export const Welcome = () => {

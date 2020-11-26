@@ -15,10 +15,7 @@ exports.JobDetails = function (_a) {
         job.saved = !job.saved;
         setsaved(function (saved) { return !saved; });
     };
-    /**
-     * Long job description returns
-     * a string of HTML
-     */
+    // Long job description returns a string of HTML
     function parseJobDesc() {
         if (job.jobDescription)
             return html_react_parser_1["default"](job.jobDescription);
@@ -30,7 +27,7 @@ exports.JobDetails = function (_a) {
             window.open(url);
         }
         catch (e) {
-            console.log(e);
+            console.error(e);
         }
     }
     return (react_1["default"].createElement(core_1.Grid, { container: true, "data-testid": "JobDetails", direction: "column" },

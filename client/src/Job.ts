@@ -1,4 +1,3 @@
-
 export class Job {
   jobId!: number;
   employerName!: string;
@@ -39,29 +38,6 @@ export class Job {
  * passed around interchangeably, but this isn't correct in terms of app expectations or
  * typescript.
  */
-/*
-export class JobDetail {
-  jobId!: number;
-  jobTitle!: string;
-  locationName!: string;
-  minimumSalary!: number | undefined;
-  maximumSalary!: number | undefined;
-  yearlyMinimumSalary!: number | undefined;
-  yearlyMaximumSalary!: number | undefined;
-  currency!: string;
-  salaryType!: string | undefined;
-  salary!: string | undefined;
-  datePosted!: string;
-  expirationDate!: string;
-  partTime!: boolean;
-  fullTime!: boolean;
-  contractType!: string;
-  jobDescription!: string;
-  applicationCount!: number;
-  externalUrl!: string | null;
-  jobUrl!: string|null;
-}*/
-
 
 /**
  * Example of long job listing object

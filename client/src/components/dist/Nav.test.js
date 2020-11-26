@@ -5,10 +5,6 @@ var Nav_1 = require("./Nav");
 var react_2 = require("@testing-library/react");
 require("@testing-library/jest-dom/extend-expect");
 var mockAddQuery = jest.fn();
-var mockQuery = 'dev';
-var mockLocationName = 'Ldn';
-var mockDistanceFrom = '';
-var mockMinimumSalary = '';
 describe('Nav', function () {
     test('it should render the component', function () {
         react_2.render(react_1["default"].createElement(Nav_1.Nav, { addQuery: mockAddQuery }));
