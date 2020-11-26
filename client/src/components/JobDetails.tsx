@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import { Job } from '../app-types';
+import { Job } from '../Job';
 import parse from 'html-react-parser';
 import LocalActivityIcon from '@material-ui/icons/LocalActivity';
 import LocalActivityOutlinedIcon from '@material-ui/icons/LocalActivityOutlined';
@@ -21,10 +21,8 @@ export const JobDetails: React.FC<Props> = ({ job, saveJobFromDetails, removeJob
     job.saved = !job.saved;
     setsaved((saved: boolean) => !saved);
   }
-  /**
-   * Long job description returns
-   * a string of HTML
-   */
+
+  // Long job description returns a string of HTML
   function parseJobDesc(): JSX.Element | JSX.Element[] | undefined {
     if (job.jobDescription) return parse(job.jobDescription)
   }
@@ -34,12 +32,12 @@ export const JobDetails: React.FC<Props> = ({ job, saveJobFromDetails, removeJob
       if (url === null) throw new Error('invalid url');
       window.open(url);
     } catch (e) {
-      console.log(e);
+      console.error(e);
     }
   }
 
   return (
-    <Grid container direction={"column"}>
+    <Grid container data-testid="JobDetails" direction={"column"}>
       <Grid container justify='space-between' style={{ padding: '20px' }}>
         <Grid item xs={8}>
           <Typography variant={'h4'} component="div">

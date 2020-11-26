@@ -7,7 +7,7 @@ import IconButton from '@material-ui/core/IconButton';
 import SearchIcon from '@material-ui/icons/Search';
 import Grid from '@material-ui/core/Grid';
 import { Button, Dialog, DialogTitle, DialogActions, List, ListItem, Slider, InputAdornment } from '@material-ui/core';
-import welcomeAnimationNav from "../loading-spinner.json";
+import welcomeAnimationNav from "../assets/loading-spinner.json";
 import lottie from 'lottie-web';
 
 type FormData = {
@@ -47,15 +47,12 @@ export const Nav: React.FC<Props> = (props) => {
     history.push('/')
   }
 
-  /************************
-   * Form utility functions
-   ************************/
+  
+  // Form utility functions
 
   const onSubmit = (data: any): void => {
     handleCloseForm();
-    console.log('Submited: ', data);
     if (data.query || data.locationName || data.distanceFrom || data.minimumSalary) {
-      console.log('Submitting: ', data);
       props.addQuery(data);
       history.push('/job-search');
     }
@@ -75,7 +72,7 @@ export const Nav: React.FC<Props> = (props) => {
 
 
   return (
-    <Grid container justify="space-evenly" spacing={1}>
+    <Grid container data-testid="NavTop" justify="space-evenly" spacing={1}>
       <Grid item xs={2}>
         <div id="load-welcome-nav" style={{ width: '100%', maxWidth: 100, height: 'auto' }} onClick={handleBackToWelcome} />
       </Grid>
@@ -89,6 +86,7 @@ export const Nav: React.FC<Props> = (props) => {
             defaultValue=''
             style={{ width: '80%' }}
             color='secondary'
+            aria-label="SearchBox"
             InputProps={{
               startAdornment: (
                 <IconButton style={{ color: '#666D82' }} aria-label="search" component="button" onClick={handleClickOpenForm}>

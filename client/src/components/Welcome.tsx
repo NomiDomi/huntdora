@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { Fade, Typography, Grid } from '@material-ui/core';
-import welcomeAnimation from "../loading-spinner.json";
+import welcomeAnimation from "../assets/loading-spinner.json";
 import lottie from 'lottie-web';
 
 export const Welcome = () => {
@@ -19,7 +19,7 @@ export const Welcome = () => {
   }, []);
 
   return (
-    <Grid container justify="center" alignItems="center" direction="column" style={{ height: '70vh' }}>
+    <Grid container data-testid="Welcome" justify="center" alignItems="center" direction="column" style={{ height: '70vh' }}>
       <Grid item>
         <div id="load-welcome" style={{ width: '100%', height: 'auto', maxWidth: 600 }} />
       </Grid>

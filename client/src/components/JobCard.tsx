@@ -1,5 +1,5 @@
 import React from 'react'
-import { Job } from '../app-types'
+import { Job } from '../Job'
 import { useHistory } from 'react-router-dom';
 import { useState } from 'react'
 import {Checkbox,Typography,Card,CardContent,Grid} from '@material-ui/core';
@@ -13,9 +13,8 @@ interface Props {
   saveJob: (job: Job) => void;
   removeJob: (job: Job) => void;
 }
-/**
- * Hover over card animation
- */
+
+// Hover over card animation
 const useStyles = makeStyles({
   root: {
     transition: "transform 0.25s ease-in-out"
@@ -24,7 +23,6 @@ const useStyles = makeStyles({
     transform: "scale(1.025)"
   }
 });
-
 
 export const JobCard: React.FC<Props> = ({ job, getJob, saveJob, removeJob }) => {
   const [saved, setsaved] = useState<boolean>(job.saved)
@@ -38,15 +36,14 @@ export const JobCard: React.FC<Props> = ({ job, getJob, saveJob, removeJob }) =>
     history.push("/job-details") // eslint-disable-line no-restricted-globals
   }
   const handleAddRemove = ():void => {
-    console.log('Changing property', job.saved)
     setsaved((saved) => !saved);
     job.saved ? removeJob(job) : saveJob(job);
     job.saved = !job.saved;
-    console.log('Changed property', job.saved)
   }
 
   return (
     <Card
+      data-testid="JobCard"
       className={classes.root}
       classes={{ root: raised.raised ? classes.cardHovered : "" }}
       onMouseOver={() => setraised({ raised: true, shadow: 20 })}
@@ -58,7 +55,7 @@ export const JobCard: React.FC<Props> = ({ job, getJob, saveJob, removeJob }) =>
         <Grid container direction="column">
           <Grid container direction="row" spacing={1}>
             <Grid item xs={10} onClick={() => handleOnJobClick(job.jobId)}>
-              <Typography variant="h6">
+              <Typography data-testid="JobCard-jobtitle" variant="h6">
                 <div>{job.jobTitle}</div>
               </Typography>
             </Grid>
@@ -76,7 +73,7 @@ export const JobCard: React.FC<Props> = ({ job, getJob, saveJob, removeJob }) =>
           </Grid>
           <Grid container direction="row">
             <Grid item xs={6}>
-              <Typography variant="overline">
+              <Typography data-testid="JobCard-locationname" variant="overline">
                 <div>{job.locationName}</div>
               </Typography>
 

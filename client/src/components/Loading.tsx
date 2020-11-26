@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import loadingSpinner from "../loading-spinner.json";
+import loadingSpinner from "../assets/loading-spinner.json";
 import lottie from 'lottie-web';
 import Grid from '@material-ui/core/Grid';
 import { Typography } from '@material-ui/core';
@@ -20,7 +20,7 @@ export const Loading = () => {
   }, []);
 
   return (
-    <Grid container justify="center" alignItems='center' style={{height:'70vh'}}>
+    <Grid container data-testid="Loading" justify="center" alignItems='center' style={{height:'70vh'}}>
       <Grid item>
         <div id="loading-spinner" style={{ width:'100%', height: 'auto', maxWidth:600  }} />
         <Typography align="center" variant="h6">
